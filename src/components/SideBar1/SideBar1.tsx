@@ -9,6 +9,7 @@ function SideBar1() {
   const [sidebarWidth, setSidebarWidth] = useState<string | number>('16rem')
 
   const startResizing = React.useCallback((mouseDownEvent: MouseEvent<HTMLDivElement>) => {
+    mouseDownEvent.preventDefault();
     setIsResizing(true);
   }, []);
 
@@ -41,7 +42,7 @@ function SideBar1() {
   }, [resize, stopResizing]);
 
   return (
-    <div className='navBarWrapper' ref={sidebarRef} style={{ width: sidebarWidth }} onMouseDown={(e) => e.preventDefault()}>
+    <div className='navBarWrapper' ref={sidebarRef} style={{ width: sidebarWidth }}>
       <nav className='navbar'>
         <ul>
           <li>Home</li>
